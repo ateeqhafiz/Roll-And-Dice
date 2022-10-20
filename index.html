@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Silkscreen&display=swap"
+     rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Changa:wght@300&family=Courgette&family=Dancing+Script:wght@600&family=Gemunu+Libre:wght@300&family=Kaushan+Script&family=Lobster&family=Orbitron&family=Silkscreen&family=Ubuntu:ital,wght@0,500;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="mx-auto d-block rounded-circle mt-2" src="/raw.jpg" style="width: 90px;;">  
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3 class="text-white text-center mt-2 ">
+                    Roll And Win
+                </h3>
+            </div>
+        </div>
+    </div>
+        <div class="container-fluid">
+          <div class="row d-flex justify-content-around" >
+            <div class="col-md-5 col-sm-9 p1" id="div1">
+                <div class="heading1">
+                    <marquee direction="right">
+                        <h1>
+                            Roll And Win 
+                        </h1>
+                    </marquee>
+                   
+                </div>
+                <h2 class="text-white1" id="player1">
+                    Player 1
+                </h2>
+                <h6>
+                    Start Rolling Via Roll Dice Button
+                </h6>
+                <!-- <h5>
+                    You Are Rolling
+                </h5> -->
+                <p class="pp"> &#174; www.arbitechsolutions.org</p>
+
+            </div>
+            <div class="col-md-5 col-sm-9 p1"  id="div2">
+                <div class="heading1">
+                    <marquee direction="right">
+                        <h1>
+                            Roll And Win 
+                        </h1>
+                    </marquee>
+                   
+                </div>
+                <h2 class="text-white1" id="player2">
+                    Player 2
+                </h2>
+                <h6 >
+                    Start Rolling Via Roll Dice Button
+                </h6>
+                <!-- <h5 class="rolling">
+                    You Are Rolling
+                </h5> -->
+                <p class="pp"> &#174; www.arbitechsolutions.org</p>
+
+            </div>
+            
+          </div>
+        
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <img class="mx-auto d-block mt-4" id="pic" src="/start.png" style="width:65px;">  
+            </div>
+        </div>
+    </div>
+    <div class="d-flex justify-content-around">
+    <div class="btn">
+        <button type="button" id="btn1"  class="btn  btn-outline-danger" onclick="RollDice();">Roll The Dice</button>
+    </div>
+    <div class="btn">
+        <button type="button" id="btn2" class="btn  btn-outline-danger" onclick="RollDice2();">Roll The Dice  </button>
+    </div>
+</div>
+    <div class="d-flex justify-content-around">
+        <!-- <div class="result"> -->
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" disabled name="screen" id="screen" type="search" placeholder="Enter Number" aria-label="Search">
+              </form>
+        <!-- </div> -->
+        <!-- <div class="result"> -->
+            <form class="form-inline">
+                <input class="form-control mr-sm-2"disabled name="screen2" id="screen2" type="search" placeholder="Enter Number" aria-label="Search">
+              </form>
+        <!-- </div> -->
+    </div>
+    <div class="popup" id="popup">
+        <img src="/congrats.png" alt="">
+        <h2>Congratulations!</h2>
+        <p>Your Are Winner.....!</p>
+         <button type="button" onclick="closePopup()">Ok</button>
+      </div>
+      <div class="popup1" id="popup1">
+        <img src="/oops.png" alt="">
+        <h2>We Are Sorry!</h2>
+        <p>Your Have Lost</p>
+         <button type="button" onclick="closePopup1()">Ok</button>
+      </div>
+      <div class="container-fluid bg-dark">
+        <div class="row">
+            <div class="col-md-12 mt-4 mx-auto text-center text-warning">
+                <p>
+                    © Copyright. All Rights Reserved
+                </p>
+            </div>
+            <div class="col-md-12 mx-auto text-center text-warning">
+                <p>
+                    Designed by <span class="text-danger">Arbitech</span>
+                </p>
+            </div>
+        </div>
+     </div>
+
+
+
+
+
+    <script>
+        let popup = document.getElementById('popup');
+function openPopup (){
+  popup.classList.add("openPopup");
+}
+
+function closePopup (){
+  popup.classList.remove("openPopup");
+  
+}
+let popup1 = document.getElementById('popup1');
+function openPopup1 (){
+  popup1.classList.add("openPopup1");
+}
+
+function closePopup1 (){
+  popup1.classList.remove("openPopup1");
+  
+}
+        var player1=0;
+        var player2=0
+        function RollDice(){
+        var x = Math.floor(Math.random()*6+1);
+        player1=player1+x;
+        if(player1>=50){
+            openPopup ()
+            player1=0
+            btn1.disabled = true;
+        }
+        
+    
+        var img1;
+        switch(x){
+            case 1 :
+                console.log("inside case 1")
+                img1=document.getElementById("pic").src="/dice-01.png";
+                document.getElementById("pic").src=img1;
+                if (img1){
+                    player1=0
+                    openPopup1()
+                    btn1.disabled = true;
+                    document.getElementById("player1").style.color= "grey";
+
+                }
+                document.getElementById("screen").value=player1;
+               
+                break;
+                case 2 :
+                console.log("inside case 2")
+
+                img1=document.getElementById("pic").src="/dice-02.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen").value=player1;
+
+        
+                break;
+                case 3 :
+                img1=document.getElementById("pic").src="/dice-03.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen").value=player1;
+
+            
+                break;
+                case 4 :
+                console.log("inside case 4")
+
+                img1=document.getElementById("pic").src="/dice-04.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen").value=player1;
+
+            
+                break;
+                case 5 :
+                console.log("inside case 5")
+
+                img1=document.getElementById("pic").src="/dice-05.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen").value=player1;
+
+                break;
+                case 6 :
+                img1=document.getElementById("pic").src="/dice-06.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen").value=player1;
+
+                break;
+                
+        }
+    }
+
+
+    function RollDice2(){
+        var x = Math.floor(Math.random()*6+1);
+        player2=player2+x;
+    
+        if(player2>=50){
+            openPopup()
+            btn2.disabled = true;
+            btn1.disabled = false;
+            player2=0
+         }
+        
+        var img1;
+        switch(x){
+            case 1 :
+                console.log("inside case 1")
+                img1=document.getElementById("pic").src="/dice-01.png";
+                document.getElementById("pic").src=img1;
+                if (img1){
+                    player2=0
+                    openPopup1()
+                    btn2.disabled = true;
+                    btn1.disabled = false;
+                    document.getElementById("player2").style.color= "grey";
+
+                }
+                document.getElementById("screen2").value=player2;
+               
+                break;
+                case 2 :
+                console.log("inside case 2")
+
+                img1=document.getElementById("pic").src="/dice-02.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen2").value=player2;
+
+                break;
+                case 3 :
+                img1=document.getElementById("pic").src="/dice-03.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen2").value=player2;
+
+                break;
+                case 4 :
+                console.log("inside case 4")
+
+                img1=document.getElementById("pic").src="/dice-04.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen2").value=player2;
+
+                break;
+                case 5 :
+                console.log("inside case 5")
+
+                img1=document.getElementById("pic").src="/dice-05.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen2").value=player2;
+
+                break;
+                case 6 :
+                img1=document.getElementById("pic").src="/dice-06.png";
+                document.getElementById("pic").src=img1;
+                document.getElementById("screen2").value=player2;
+
+                break;
+                
+        }
+    }
+
+    
+
+
+    </script>
+    
+</body>
+</html>
